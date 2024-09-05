@@ -9,8 +9,9 @@ pipeline {
         }
         stage('Build') {
     					steps {
-    					    bat "\"${tool 'MSBuild'}\" Api.DotNetCore.sln  /t:restore  /p:outdir=Publish /p:deployonbuild=true /p:Configuration=Debug /p:Platform=\"Any CPU\" "
-    					    //powershell 'MsBuild MVC.sln   /t:restore /t:build /p:Configuration=Debug /p:Platform="Any CPU"'
+    					    	bat "dotnet restore Api.DotNetCore/Api.DotNetCore.csproj"
+    				  		bat "dotnet build Api.DotNetCore/Api.DotNetCore.csproj -c Release -o /app/build"
+	    			   	    bat "dotnet publish Api.DotNetCore/Api.DotNetCore.csproj -c Release -o /app/publish"
     					    
     					}
 				}
