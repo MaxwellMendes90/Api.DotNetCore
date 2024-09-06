@@ -9,10 +9,8 @@ pipeline {
         }
         stage('Build') {
     					steps {
-    					    	bat "dotnet restore Api.DotNetCore/Api.DotNetCore.csproj"
-    				  		bat "dotnet build Api.DotNetCore/Api.DotNetCore.csproj -c Release -o /app/build"
-	    			   	    bat "dotnet publish Api.DotNetCore/Api.DotNetCore.csproj -c Release -o /app/publish"
-    					    
+    					    	bat "docker build -t maxwellforever/testing:$(BUILD_NUMBER) ."
+    				  		bat "docker push maxwellforever/testing:$(BUILD_NUMBER)"   					    
     					}
 				}
     }
