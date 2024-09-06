@@ -9,8 +9,8 @@ pipeline {
         }
         stage('Build') {
     					steps {
-    					    	bat "docker build -t maxwellforever/testing:$(BUILD_NUMBER) ."
-    				  		bat "docker push maxwellforever/testing:$(BUILD_NUMBER)"   					    
+    					    	bat "docker build -t maxwellforever/testing:12 ."
+    				  		bat "docker push maxwellforever/testing:12"   					    
     					}
 				}
     }
