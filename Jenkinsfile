@@ -8,6 +8,8 @@ pipeline {
 	    {
         	steps
 	    	{
+				echo "I	m here" 
+
 				cleanWs()
 				
 				checkout scm
